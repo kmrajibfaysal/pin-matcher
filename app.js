@@ -20,3 +20,21 @@ document.querySelector('#key-pad').addEventListener('click', (event) => {
     calcInput.value = newNumber;
   }
 });
+
+const submitBtn = document.querySelector('#submit-btn');
+const displayPin = document.querySelector('#display-pin');
+const typedNumbers = document.querySelector('#typed-numbers');
+
+submitBtn.addEventListener('click', (event) => {
+  if (displayPin.value === typedNumbers.value) {
+    document.querySelector('#matched').classList.toggle('d-none');
+  } else {
+    document.querySelector('#not-matched').classList.toggle('d-none');
+    const tryLeft = document.querySelector('#try-left');
+    if (parseInt(tryLeft.innerText) > 0) {
+      tryLeft.innerText = parseInt(tryLeft.innerText) - 1;
+    } else {
+      alert('Please try again Later!');
+    }
+  }
+});
