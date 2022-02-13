@@ -22,14 +22,16 @@ document.querySelector('#key-pad').addEventListener('click', (event) => {
 });
 
 const submitBtn = document.querySelector('#submit-btn');
-const displayPin = document.querySelector('#display-pin');
-const typedNumbers = document.querySelector('#typed-numbers');
 
 submitBtn.addEventListener('click', (event) => {
+  const displayPin = document.querySelector('#display-pin');
+  const typedNumbers = document.querySelector('#typed-numbers');
   if (displayPin.value === typedNumbers.value) {
     document.querySelector('#matched').classList.toggle('d-none');
+    document.querySelector('#not-matched').classList.add('d-none');
   } else {
     document.querySelector('#not-matched').classList.toggle('d-none');
+    document.querySelector('#matched').classList.add('d-none');
     const tryLeft = document.querySelector('#try-left');
     if (parseInt(tryLeft.innerText) > 0) {
       tryLeft.innerText = parseInt(tryLeft.innerText) - 1;
